@@ -1,0 +1,157 @@
+/* Reset CSS và Box Sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+/* Header */
+.header {
+  background-color: #2c3e50;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 10px;
+  margin-bottom: 10px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #34495e;
+  margin-bottom: 10px;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  display: block;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  background-color: #1abc9c;
+}
+
+/* Main Layout (Flexbox Responsive) */
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Mặc định trên Desktop: Cấu trúc 3 cột */
+.sidebar-left {
+  flex: 1 1 200px;
+  background-color: #e8f8f5;
+  border: 1px solid #a3e4d7;
+  padding: 15px;
+}
+
+.sidebar-left ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.sidebar-left ul li a {
+  text-decoration: none;
+  color: #16a085;
+}
+
+.content {
+  flex: 3 1 400px;
+  background-color: #fef9e7;
+  border: 1px solid #f9e79f;
+  padding: 15px;
+}
+
+.card-grid {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.card {
+  flex: 1;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar-right {
+  flex: 1 1 200px;
+  background-color: #eaf2f8;
+  border: 1px solid #aed6f1;
+  padding: 15px;
+}
+
+.widget {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+/* --- MEDIA QUERIES (Xử lý Responsive) --- */
+
+/* 1. Màn hình Tablet (Nhỏ hơn hoặc bằng 992px) */
+@media (max-width: 992px) {
+  .sidebar-left,
+  .sidebar-right {
+    flex: 1 1 45%; /* Hai cột sidebar sẽ nằm sóng đôi ở hàng bên dưới */
+  }
+
+  .content {
+    flex: 1 1 100%; /* Nội dung chính chiếm full hàng trên */
+    order: -1; /* Đưa nội dung chính lên đầu */
+  }
+}
+
+/* 2. Màn hình Mobile (Nhỏ hơn hoặc bằng 600px) */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column; /* Menu chuyển thành dạng dọc */
+    text-align: center;
+  }
+
+  .main-content {
+    flex-direction: column; /* Tất cả các cột xếp chồng 100% chiều rộng */
+  }
+
+  .sidebar-left,
+  .content,
+  .sidebar-right {
+    flex: 1 1 100%;
+  }
+
+  .card-grid {
+    flex-direction: column; /* Các thẻ con xếp dọc */
+  }
+}
